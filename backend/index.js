@@ -1,58 +1,47 @@
 import express from "express";
 import mysql from "mysql";
+import cors from "cors";
 
-const app = express()
-
+const app = express();
 
 const db = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "27129421",
-    database: "test"
-});
-
-db.connect((err) => {
-    if (err) {
-        console.error('Erro ao conectar ao MySQL:', err);
-    } else {
-        console.log('Conectado ao MySQL!');
-    }
+  host: "localhost",
+  user: "root",
+  password: "RV*@8mr5*686$9^",
+  database: "bd1",
 });
 
 app.use(express.json());
+app.use(cors());
 
-
-app.get("/books",(req,res)=>{
-    const q = "SELECT * FROM books"
-    db.query(q,(err,data)=>{
-        if(err){
-            console.log("ERROR")
-            return res.json(err)
-        }
-        return res.json(data)
-    })
-})
-
-app.post("/books", (req, res) => {
-    const q = "INSERT INTO books(`title`, `desc`, `cover`) VALUES (?, ?, ?)";
-    
-    const { title, desc, cover } = req.body;
-
-    if (!title || !desc || !cover) {
-        return res.status(400).json({ error: "Missing required fields in request body." });
-        
-    }
-    db.query(q, [title, desc, cover], (err, data) => {
-        if (err) {
-            console.error(err);
-            return res.status(500).json({ error: "Erro ao inserir na base de dados." });
-        }
-        return res.json(data);
-    });
+app.get("/", (req, res) => {
+  res.json("Olá, este é o backend!");
 });
 
+app.get("/login", (req, res) => {
+  const q = "SELECT * FROM usuario";
+  db.query(q, (err, data) => {
+    if (err) return res.json(err);
+    return res.json(data);
+  });
+});
 
+app.post("/login", (req, res) => {
+  const q =
+    "INSERT INTO usuario (`email`, `nome`, `senha`, `tipo_usuario`) VALUES (?)";
+  const values = [
+    req.body.email,
+    req.body.nome,
+    req.body.senha,
+    req.body.tipo_usuario,
+  ];
+
+  db.query(q, [values], (err, data) => {
+    if (err) return res.json(err);
+    return res.json("User has been create");
+  });
+});
 
 app.listen(8800, () => {
-    console.log("Connected to backend.");
-  });
+  console.log("Connected to backend!");
+});
