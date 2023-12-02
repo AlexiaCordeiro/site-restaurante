@@ -1,6 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./pages/Login/Login";
 import Users from "./pages/Users";
+import Catalog from "./pages/Catalog/Catalog";
+
 import "./global.css";
 
 function App() {
@@ -10,10 +12,12 @@ function App() {
         <Routes>
           <Route path="/" element={<Login />}></Route>
           <Route path="/Users" element={<Users />}></Route>
+          <Route path="/Catalog" element={<Catalog />} ></Route>
         </Routes>
       </BrowserRouter>
     </div>
   );
 }
+
 
 export default App;
