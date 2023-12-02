@@ -55,7 +55,11 @@ const ShoppingCart = () => {
         <p>Total: R$ {totalSum.toFixed(2)}</p>
       </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <Link to="/Rating" className={styles.payButton}>Finalizar</Link>
+=======
+      <Link to="/" className={styles.payButton}>Pagar</Link>
+>>>>>>> 76d43e09db97f868e23ec43c3a8c8c79c7bbbe33
 =======
       <Link to="/" className={styles.payButton}>Pagar</Link>
 >>>>>>> 76d43e09db97f868e23ec43c3a8c8c79c7bbbe33

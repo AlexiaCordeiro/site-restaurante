@@ -35,7 +35,11 @@ const ProductForm = () => {
     e.preventDefault();
     try {
       const res = await axios.post('http://localhost:8800/products', product);
+<<<<<<< HEAD
       window.alert('Produto adicionado com sucesso:', res.data);
+=======
+      console.log('Product added:', res.data);
+>>>>>>> 76d43e09db97f868e23ec43c3a8c8c79c7bbbe33
       setIsProductAdded(true);
 
       // Redirect to the root ("/") after successful product addition
@@ -44,8 +48,11 @@ const ProductForm = () => {
       console.error('Error adding product:', err);
     }
   };
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 76d43e09db97f868e23ec43c3a8c8c79c7bbbe33
   return (
     <div className={styles.container}>
       

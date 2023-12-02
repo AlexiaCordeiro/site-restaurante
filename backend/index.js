@@ -48,6 +48,7 @@ app.get('/categories', (req, res) => {
     if (err) {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       console.error('Error fetching categories:', error);
       res.status(500).json({ message: 'Internal Server Error' });
     } else {
@@ -80,6 +81,8 @@ app.get('/categories', (req, res) => {
 >>>>>>> 76d43e09db97f868e23ec43c3a8c8c79c7bbbe33
 =======
 >>>>>>> 76d43e09db97f868e23ec43c3a8c8c79c7bbbe33
+=======
+>>>>>>> 76d43e09db97f868e23ec43c3a8c8c79c7bbbe33
       console.error('Error fetching categories:', err); // Change "error" to "err" in this line
       res.status(500).json({ message: 'Internal Server Error' });
     } else {
@@ -98,6 +101,7 @@ app.get('/products', (req, res) => {
     return res.json(products);
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   });
 });
 
@@ -109,6 +113,8 @@ app.get("/avaliacao", (req, res) => {
       return res.json(err);
     }
     return res.json(data);
+=======
+>>>>>>> 76d43e09db97f868e23ec43c3a8c8c79c7bbbe33
 =======
 >>>>>>> 76d43e09db97f868e23ec43c3a8c8c79c7bbbe33
 =======
@@ -146,6 +152,7 @@ app.get('/products/:id', (req, res) => {
     }
 
     return res.status(200).json(product[0]);
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
   });
@@ -191,6 +198,8 @@ app.get('/avaliacao/:id', (req, res) => {
     }
 
     return res.status(200).json(product[0]);
+=======
+>>>>>>> 76d43e09db97f868e23ec43c3a8c8c79c7bbbe33
 =======
 >>>>>>> 76d43e09db97f868e23ec43c3a8c8c79c7bbbe33
 =======
