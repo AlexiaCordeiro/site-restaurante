@@ -64,8 +64,8 @@ const CreateUser = () => {
 
   return (
     <div>
-      <div onSubmit={handleSubmit} className={styles.page}>
-        <form>
+      <div className={styles.page}>
+        <form onSubmit={handleSubmit}>
           <fieldset>
             <div className={styles.fieldsetWrapper}>
               <legend>Cadastrar Usuário</legend>

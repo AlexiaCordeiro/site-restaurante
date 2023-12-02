@@ -41,7 +41,7 @@ const Login = () => {
 
     const currentUser = users.find((user) => user.email === userEmail);
 
-    if (currentUser?.email === userEmail && currentUser?.senha == password) {
+    if (currentUser?.email === userEmail && currentUser?.senha === password) {
       localStorage.setItem("usuario", userEmail);
       currentUser.tipo_usuario === 0
         ? navigate("/Admin")
@@ -53,8 +53,8 @@ const Login = () => {
 
   return (
     <div>
-      <div onSubmit={handleLogin} className={styles.page}>
-        <form>
+      <div className={styles.page}>
+        <form onSubmit={handleLogin}>
           <fieldset>
             <div className={styles.fieldsetWrapper}>
               <legend>Fazer Login</legend>
