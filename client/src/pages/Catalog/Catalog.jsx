@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import styles from "./Catalog.module.css"
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import styles from "./Catalog.module.css";
 
-const Catalog = () => {
+const Catalog = ({ setCart }) => {
   const [products, setProducts] = useState([]);
-  const [selectedProductId, setSelectedProductId] = useState(null); // Estado para armazenar o ID do produto selecionado
+  const [selectedProductId, setSelectedProductId] = useState(null);
+  const [cart, setLocalCart] = useState([]); // Define cart as a local state variable
   
   const navigate = useNavigate();
 
@@ -20,12 +21,17 @@ const Catalog = () => {
     };
     fetchAllProducts();
   }, []);
- 
+
   const handleSaveProduct = (productId) => {
-    // Aqui você pode implementar a lógica para salvar o ID do produto
-    // Pode ser uma chamada de API, um estado global (como Redux), etc.
-    console.log("Adicionar Produto:", productId);
     setSelectedProductId(productId);
+    // Use setCart function received as prop to update the cart
+    setCart((prevCart) => [...prevCart, productId]);
+    setLocalCart((prevLocalCart) => [...prevLocalCart, productId]); // Update local cart state as well
+  };
+
+  const handleCheckout = () => {
+    // Redirect to a checkout page passing the cart items as state or query params
+    navigate(`/shopping-cart?cart=${JSON.stringify(cart)}`); // Navigate to ShoppingCart component with cart items
   };
 
   return (
@@ -36,16 +42,18 @@ const Catalog = () => {
           <li key={product.id_produto} className={index % 2 === 0 ? styles.even : styles.odd}>
             <h2>{product.nome}</h2>
             <p className={index % 2 === 0 ? styles.green : styles.purple}>Preço: R$ {product.preco.toFixed(2).toString().replace(".", ",")}</p>
-            <p className={index % 2 === 0 ? styles.green : styles.purple}>Decrição: {product.descricao}</p>
+            <p className={index % 2 === 0 ? styles.green : styles.purple}>Descrição: {product.descricao}</p>
             <p className={index % 2 === 0 ? styles.green : styles.purple}>id_Produto: {product.id_produto}</p>
-             {/* Botão para salvar o ID do produto */}
-             <button onClick={() => handleSaveProduct(product.id_produto)}>Adicionar ao Carrinho</button>
+            <button onClick={() => handleSaveProduct(product.id_produto)}>Adicionar ao Carrinho</button>
           </li>
         ))}
       </ul>
-      <div>{/* Exibir o ID do produto selecionado */}
-        {selectedProductId && <p>ID do produto selecionado: {selectedProductId}</p>}</div>
+      <div>
+        <div className={styles.buttonComprar}>
+        {selectedProductId && <p>ID do produto selecionado: {selectedProductId}</p>}
+        <button onClick={handleCheckout}>Comprar</button></div>
       </div>
+    </div>
   );
 };
 

@@ -35,7 +35,7 @@ const ProductForm = () => {
     e.preventDefault();
     try {
       const res = await axios.post('http://localhost:8800/products', product);
-      console.log('Product added:', res.data);
+      window.alert('Produto adicionado com sucesso:', res.data);
       setIsProductAdded(true);
 
       // Redirect to the root ("/") after successful product addition
@@ -44,6 +44,8 @@ const ProductForm = () => {
       console.error('Error adding product:', err);
     }
   };
+
+
   return (
     <div className={styles.container}>
       
