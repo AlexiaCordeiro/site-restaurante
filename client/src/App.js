@@ -13,11 +13,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Login />}></Route>
           <Route path="/Users" element={<Users />}></Route>
-<<<<<<< HEAD
           <Route path="/Catalog" element={<Catalog />} ></Route>
-=======
           <Route path="/CreateUser" element={<CreateUser />}></Route>
->>>>>>> origin/master
         </Routes>
       </BrowserRouter>
     </div>
