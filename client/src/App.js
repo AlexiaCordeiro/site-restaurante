@@ -1,10 +1,10 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Login from "./pages/Login/Login";
-import CreateUser from "./pages/CreateUser/CreateUser";
-import Users from "./pages/Users";
-import Catalog from "./pages/Catalog/Catalog";
-
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./global.css";
+import Catalog from "./pages/Catalog/Catalog";
+import CreateUser from "./pages/CreateUser/CreateUser";
+import Login from "./pages/Login/Login";
+import ProductForm from "./pages/ProductForm"; // Import the ProductForm component
+import Users from "./pages/Users";
 
 function App() {
   return (
@@ -15,6 +15,7 @@ function App() {
           <Route path="/Users" element={<Users />}></Route>
           <Route path="/Catalog" element={<Catalog />} ></Route>
           <Route path="/CreateUser" element={<CreateUser />}></Route>
+          <Route path="/Admin" element={<ProductForm />} />
         </Routes>
       </BrowserRouter>
     </div>
