@@ -45,7 +45,7 @@ const Login = () => {
       localStorage.setItem("usuario", userEmail);
       currentUser.tipo_usuario === 0
         ? navigate("/Admin")
-        : navigate("/Products");
+        : navigate("/Catalog");
     } else {
       window.alert("Usuário ou senha inválidos!");
     }
