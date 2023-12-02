@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./global.css";
+import Catalog from "./pages/Catalog/Catalog";
 import CreateUser from "./pages/CreateUser/CreateUser";
 import Login from "./pages/Login/Login";
 import ProductForm from "./pages/ProductForm"; // Import the ProductForm component
@@ -12,6 +13,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Login />}></Route>
           <Route path="/Users" element={<Users />}></Route>
+          <Route path="/Catalog" element={<Catalog />} ></Route>
           <Route path="/CreateUser" element={<CreateUser />}></Route>
           <Route path="/Admin" element={<ProductForm />} />
         </Routes>
@@ -19,5 +21,6 @@ function App() {
     </div>
   );
 }
+
 
 export default App;
