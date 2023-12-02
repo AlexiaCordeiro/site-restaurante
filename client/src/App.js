@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./pages/Login/Login";
+import CreateUser from "./pages/CreateUser/CreateUser";
 import Users from "./pages/Users";
 import Catalog from "./pages/Catalog/Catalog";
 
@@ -12,7 +13,11 @@ function App() {
         <Routes>
           <Route path="/" element={<Login />}></Route>
           <Route path="/Users" element={<Users />}></Route>
+<<<<<<< HEAD
           <Route path="/Catalog" element={<Catalog />} ></Route>
+=======
+          <Route path="/CreateUser" element={<CreateUser />}></Route>
+>>>>>>> origin/master
         </Routes>
       </BrowserRouter>
     </div>

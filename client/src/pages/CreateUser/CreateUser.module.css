@@ -7,8 +7,7 @@
   align-items: center;
 }
 
-form,
-.createUserCard {
+form {
   width: 656px;
   background-color: var(--gray-700);
   border-radius: 8px;
@@ -29,8 +28,7 @@ fieldset {
   gap: 20px;
 }
 
-fieldset legend,
-.createUserCard h2 {
+fieldset legend {
   font-weight: 600;
   font-size: 20px;
   line-height: 35px;
@@ -44,8 +42,7 @@ fieldset legend,
   flex-direction: column;
 }
 
-.inputWrapper label,
-.inputWrapper h2 {
+.inputWrapper label {
   font-size: 18px;
   line-height: 25px;
   margin-bottom: 5px;
@@ -76,8 +73,7 @@ fieldset legend,
   padding: 4px;
 }
 
-input.submit,
-.createUserCard button {
+input.submit {
   background-color: var(--white);
   border: 3px solid var(--black);
   color: var(--black);
@@ -89,8 +85,7 @@ input.submit,
   margin-top: 20px;
 }
 
-input.submit:hover,
-.createUserCard button:hover {
+input.submit:hover {
   background-color: var(--gray-400);
   border: 3px solid var(--white);
   color: var(--white);

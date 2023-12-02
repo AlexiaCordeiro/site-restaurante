@@ -35,11 +35,11 @@ const Catalog = () => {
         {products.map((product, index) => (
           <li key={product.id_produto} className={index % 2 === 0 ? styles.even : styles.odd}>
             <h2>{product.nome}</h2>
-            <p className={index % 2 === 0 ? styles.green : styles.purple}>Preço: R$ {product.preco}</p>
+            <p className={index % 2 === 0 ? styles.green : styles.purple}>Preço: R$ {product.preco.toFixed(2).toString().replace(".", ",")}</p>
             <p className={index % 2 === 0 ? styles.green : styles.purple}>Decrição: {product.descricao}</p>
             <p className={index % 2 === 0 ? styles.green : styles.purple}>id_Produto: {product.id_produto}</p>
              {/* Botão para salvar o ID do produto */}
-             <button onClick={() => handleSaveProduct(product.id_produto)}>Adicionar Produto</button>
+             <button onClick={() => handleSaveProduct(product.id_produto)}>Adicionar ao Carrinho</button>
           </li>
         ))}
       </ul>
