@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./pages/Login/Login";
+import CreateUser from "./pages/CreateUser/CreateUser";
 import Users from "./pages/Users";
 import "./global.css";
 
@@ -10,6 +11,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Login />}></Route>
           <Route path="/Users" element={<Users />}></Route>
+          <Route path="/CreateUser" element={<CreateUser />}></Route>
         </Routes>
       </BrowserRouter>
     </div>

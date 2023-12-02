@@ -1,9 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import styles from "./Login.module.css";
+import { Eye, EyeClosed } from "@phosphor-icons/react";
 
 const Login = () => {
+  const inputRef = useRef(null);
+  const [eyeIsClosed, setEyeState] = useState(false);
+
   const [users, setUsers] = useState([]);
   const [userEmail, setUserEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -21,6 +25,16 @@ const Login = () => {
     };
     fetchAllUsers();
   }, []);
+
+  const toggleShow = () => {
+    if (inputRef.current.type === "password") {
+      setEyeState(true);
+      inputRef.current.type = "text";
+    } else {
+      setEyeState(false);
+      inputRef.current.type = "password";
+    }
+  };
 
   function handleLogin(ev) {
     ev.preventDefault();
@@ -56,13 +70,19 @@ const Login = () => {
               </div>
               <div className={styles.inputWrapper}>
                 <label htmlFor="password">Senha:</label>
-                <input
-                  type="password"
-                  id="password"
-                  autoComplete="off"
-                  required
-                  onChange={(ev) => setPassword(ev.target.value)}
-                />
+                <div className={styles.passwordBtnsWrapper}>
+                  <input
+                    type="password"
+                    id="password"
+                    autoComplete="off"
+                    required
+                    onChange={(ev) => setPassword(ev.target.value)}
+                    ref={inputRef}
+                  />
+                  <button type="button" onClick={toggleShow}>
+                    {eyeIsClosed ? <EyeClosed /> : <Eye />}
+                  </button>
+                </div>
               </div>
             </div>
           </fieldset>
